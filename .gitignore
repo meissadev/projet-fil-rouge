@@ -98,6 +98,9 @@ dist
 # Sveltekit cache directory
 .svelte-kit/
 
+# Tailwind CSS generated file
+src/css/output.css
+
 # vitepress build output
 **/.vitepress/dist
 
