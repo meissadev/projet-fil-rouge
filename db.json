@@ -1,0 +1,34 @@
+{
+  "projets": [
+    {
+      "id": 1,
+      "libelle": "ImmoSN – Plateforme immobilière",
+      "description": "Plateforme Laravel multi-rôles pour la gestion et la location de biens immobiliers au Sénégal.",
+      "imageUrl": "",
+      "technologies": ["Laravel 10", "MySQL", "Tailwind CSS", "Alpine.js"],
+      "githubUrl": "https://github.com/meissa/immosn",
+      "demoUrl": "",
+      "statut": "termine"
+    },
+    {
+      "id": 2,
+      "libelle": "E-tourisme Flask/Gunicorn",
+      "description": "Application web de tourisme déployée avec Flask, Gunicorn et Traefik en reverse proxy.",
+      "imageUrl": "",
+      "technologies": ["Python", "Flask", "Gunicorn", "Docker", "Traefik"],
+      "githubUrl": "",
+      "demoUrl": "",
+      "statut": "termine"
+    },
+    {
+      "id": 3,
+      "libelle": "IoT Dashboard – ESP8266 + Grafana",
+      "description": "Stack de monitoring IoT : capteur DHT11 sur ESP8266 publiant via MQTT vers Telegraf, InfluxDB 2.x et Grafana.",
+      "imageUrl": "",
+      "technologies": ["ESP8266", "MQTT", "Telegraf", "InfluxDB 2.x", "Grafana"],
+      "githubUrl": "",
+      "demoUrl": "",
+      "statut": "en_cours"
+    }
+  ]
+}
