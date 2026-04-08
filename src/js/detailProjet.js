@@ -1,0 +1,1 @@
+/* ======================= detailProjet.js - Affichage des détails d'un projet (Mame Yacine) ======================= */
