@@ -1,1 +1,128 @@
 @import "tailwindcss";
+
+/* ── 1. Thème (remplace tailwind.config.js) ─────── */
+@theme {
+  --color-neon:    #39ff7a;
+  --color-accent:  #b96ef5;
+  --color-surface: #111711;
+  --color-card:    #1c2a1c;
+  --color-muted:   #4a5e4a;
+  --color-bg:      #0a0f0a;
+
+  --font-family-display: 'Syne', sans-serif;
+  --font-family-mono:    'Space Mono', monospace;
+
+  --shadow-neon: 0 0 18px #39ff7a;
+
+  --radius-card: 12px;
+
+  --animate-marquee: marquee 18s linear infinite;
+  --animate-blink:   blink 1.2s step-end infinite;
+  --animate-fadeup:  fadeup .6s ease both;
+  --animate-spin-slow: spin 6s linear infinite;
+
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0; }
+  }
+  @keyframes fadeup {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+}
+
+/* ── 2. Base — reset & éléments globaux ─────────── */
+@layer base {
+  :root {
+    --font-hero: clamp(2.8rem, 10vw, 7rem);
+  }
+
+  ::-webkit-scrollbar       { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--color-bg); }
+  ::-webkit-scrollbar-thumb { background: var(--color-neon); border-radius: 2px; }
+
+  body::before {
+    content:        '';
+    position:       fixed;
+    inset:          0;
+    pointer-events: none;
+    z-index:        999;
+    opacity:        .025;
+    background-image: url("data:image/svg+xml,...");
+  }
+
+  input[type="text"],
+  input[type="url"] {
+    background:    var(--color-card);
+    border:        1px solid var(--color-muted);
+    color:         #fff;
+    border-radius: 8px;
+    padding:       .65rem 1rem;
+    outline:       none;
+    transition:    border-color .2s;
+    font-size:     .85rem;
+  }
+  input:focus {
+    border-color: var(--color-neon);
+    box-shadow:   0 0 0 3px rgb(57 255 122 / .12);
+  }
+}
+
+/* ── 3. Composants — pseudo-éléments & valeurs      *
+ *      dynamiques impossibles en classes HTML ────── */
+@layer components {
+
+  /* font-size avec clamp() — pas d'utilitaire Tailwind */
+  .hero-name {
+    font-size:      var(--font-hero);
+    line-height:    1;
+    letter-spacing: -.02em;
+  }
+
+  /* ::before avec dégradé — pseudo-élément impossible en HTML */
+  .stat-card {
+    position:        relative;
+    border:          1px solid transparent;
+    background-clip: padding-box;
+  }
+  .stat-card::before {
+    content:       '';
+    position:      absolute;
+    inset:         -1px;
+    border-radius: var(--radius-card);
+    background:    linear-gradient(135deg, var(--color-neon), var(--color-accent));
+    z-index:       -1;
+  }
+
+  /* conic-gradient — pas de support Tailwind natif */
+  .avatar-ring {
+    background:    conic-gradient(var(--color-neon), var(--color-accent), var(--color-neon));
+    padding:       3px;
+    border-radius: 9999px;
+  }
+
+  /* width: max-content sur flex — cas edge avec flex */
+  .marquee-inner {
+    display: flex;
+    width:   max-content;
+  }
+
+  /* position fixed + backdrop-filter sur un ID — plus propre en CSS */
+  #section-detail {
+    position:        fixed;
+    inset:           0;
+    background:      rgb(0 0 0 / .85);
+    backdrop-filter: blur(8px);
+    z-index:         50;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+  }
+}

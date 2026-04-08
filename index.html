@@ -6,7 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio JS</title>
   </head>
-  <body>
+    <body class="bg-bg text-white font-mono antialiased overflow-x-hidden">
+
+      <!-- ═══════════════════════════════════════════════ HEADER / NAVBAR -->
+      <header class="fixed top-0 left-0 right-0 z-40 bg-bg/80 backdrop-blur border-b border-card">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      
+          <!-- Logo -->
+          <a href="#" class="flex items-center gap-2 font-display font-bold text-white text-lg tracking-tight">
+            <span class="w-7 h-7 rounded-md bg-neon flex items-center justify-center text-bg text-xs font-black">G2</span>
+            Groupe 2
+          </a>
+      
+          <!-- Links -->
+          <ul class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+            <li><a href="#hero"     class="hover:text-neon transition-colors">Accueil</a></li>
+            <li><a href="#apropos"  class="hover:text-neon transition-colors">A propos</a></li>
+            <li><a href="#experience" class="hover:text-neon transition-colors">Experience</a></li>
+            <li><a href="#projets"  class="hover:text-neon transition-colors">Portfolio</a></li>
+            <li><a href="#contact"  class="hover:text-neon transition-colors">Contact</a></li>
+          </ul>
+      
+          <!-- CTA -->
+          <a href="#contact"
+            class="hidden md:inline-flex items-center gap-2 border border-neon text-neon text-sm font-mono px-4 py-2 rounded-full hover:bg-neon hover:text-bg transition-all duration-200">
+            Recruter maintenant
+          </a>
+      
+          <!-- Mobile burger -->
+          <button id="btnMenu" class="md:hidden text-neon" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </nav>
+      
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-4 text-sm text-gray-300">
+          <a href="#hero"       class="hover:text-neon">Accueil</a>
+          <a href="#apropos"    class="hover:text-neon">A propos</a>
+          <a href="#experience" class="hover:text-neon">Experience</a>
+          <a href="#projets"    class="hover:text-neon">Portfolio</a>
+          <a href="#contact"    class="hover:text-neon">Contact</a>
+        </div>
+      </header>
+
+
 
 
 
