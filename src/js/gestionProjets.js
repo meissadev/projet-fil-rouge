@@ -1,15 +1,12 @@
-/* ======================= gestionProjets.js - Gestion de l'ajout et suppression des projets (Amina) ======================= */
+/* ======================= 
+   gestionProjets.js 
+========================= */
+let projets = [];
+let nextId = 1;
+
 function ajouterProjet(nom, description) {
-    const container = document.getElementById("projects");
-
-    const projet = document.createElement("div");
-    projet.className = "project";
-
-    projet.innerHTML = `
-        <h3>${nom}</h3>
-        <p>${description}</p>
-        <button class="delete">Supprimer</button>
-    `;
-
-    container.appendChild(projet);
-}
+  // Vérification : les champs ne doivent pas être vides
+  if (!nom || !description) {
+    alert("Remplis tous les champs !");
+    return;
+  }
