@@ -34,3 +34,12 @@ function ajouterProjet(nom, description) {
 
   container.appendChild(projet);
 }
+
+function supprimerProjet(id) {
+  projets = projets.filter(p => p.id !== id);
+
+  const element = document.getElementById(`projet-${id}`);
+  if (element) {
+    element.remove();
+  }
+}
