@@ -118,3 +118,19 @@ export function fermerDetail() {
   sectionDetail.style.display = "none";
   detailContenu.innerHTML     = "";
 }
+
+/* ── Branchement des écouteurs ───────────────────────── */
+export function initDetailProjet() {
+  /* Bouton ✕ */
+  btnFermerDetail.addEventListener("click", fermerDetail);
+
+  /* Clic sur le fond de l'overlay */
+  sectionDetail.addEventListener("click", (e) => {
+    if (e.target === sectionDetail) fermerDetail();
+  });
+
+  /* Touche Escape */
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") fermerDetail();
+  });
+}
