@@ -1,3 +1,4 @@
+<<<<<<< feature/detailler-projet
 /* ======================= detailProjet.js - Affichage des détails d'un projet (Mame Yacine) ======================= */
 
 import { trouverProjet } from "./projet.js";
@@ -13,3 +14,6 @@ const STATUT_LABELS = {
   termine:  { label: "Terminé",   classe: "text-neon"       },
   archive:  { label: "Archivé",   classe: "text-muted"      },
 };
+=======
+/* ======================= detailProjet.js - Affichage des détails d'un projet (Mame Yacine) ======================= */
+>>>>>>> develop
