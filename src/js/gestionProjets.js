@@ -10,3 +10,11 @@ function ajouterProjet(nom, description) {
     alert("Remplis tous les champs !");
     return;
   }
+
+  const nouveauProjet = {
+    id: nextId++,
+    nom: nom,
+    description: description
+  };
+
+  projets.push(nouveauProjet);
