@@ -109,3 +109,12 @@ export function detaillerProjet(id) {
 /* Affiche l'overlay */
 sectionDetail.style.display = "flex";
 }
+
+/* ────────────────────────────────────────────────────── *
+ *  fermerDetail()                                        *
+ *  Cache l'overlay et vide son contenu.                  *
+ * ────────────────────────────────────────────────────── */
+export function fermerDetail() {
+  sectionDetail.style.display = "none";
+  detailContenu.innerHTML     = "";
+}
