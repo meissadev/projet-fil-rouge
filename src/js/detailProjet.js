@@ -50,4 +50,62 @@ export function detaillerProjet(id) {
          Accéder à la démo →
        </a>`
     : `<span class="text-muted">—</span>`;
-    
+
+    /* ── Injection du contenu ───────────────────────── */
+  detailContenu.innerHTML = `
+  <!-- Image -->
+  <img src="${src}"
+       alt="${projet.libelle}"
+       onerror="this.src='${placeholder}'"
+       class="w-full rounded-xl mb-6 object-cover max-h-56"/>
+
+  <!-- En-tête -->
+  <p class="text-neon font-mono text-xs mb-1 tracking-widest uppercase">
+    Projet #${projet.id}
+  </p>
+  <h3 class="text-white font-display font-extrabold text-2xl mb-4">
+    ${projet.libelle}
+  </h3>
+
+  <!-- Grille de méta-données -->
+  <div class="grid grid-cols-2 gap-3 mb-4 text-xs font-mono">
+
+    <div class="bg-card rounded-lg p-3">
+      <p class="text-muted mb-1 uppercase tracking-widest">Statut</p>
+      <p class="${statutInfo.classe} font-bold">${statutInfo.label}</p>
+    </div>
+
+    <div class="bg-card rounded-lg p-3">
+      <p class="text-muted mb-1 uppercase tracking-widest">GitHub</p>
+      ${lienGithub}
+    </div>
+
+    <div class="bg-card rounded-lg p-3 col-span-2">
+      <p class="text-muted mb-1 uppercase tracking-widest">Démo</p>
+      ${lienDemo}
+    </div>
+
+    <div class="bg-card rounded-lg p-3 col-span-2">
+      <p class="text-muted mb-1 uppercase tracking-widest">Description</p>
+      <p class="text-white leading-relaxed">
+        ${projet.description || "<span class='text-muted'>Aucune description.</span>"}
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Technologies : sous-liste ordonnée -->
+  ${projet.technologies.length ? `
+  <div class="bg-card rounded-lg p-4">
+    <p class="text-muted text-xs uppercase tracking-widest mb-2">
+      Technologies utilisées
+    </p>
+    <ol class="list-decimal list-inside space-y-1 text-neon text-xs font-mono">
+      ${techItems}
+    </ol>
+  </div>` : ""}
+`;
+
+/* Affiche l'overlay */
+sectionDetail.style.display = "flex";
+}
