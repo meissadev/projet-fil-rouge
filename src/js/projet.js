@@ -51,3 +51,47 @@ export function creerProjet(
   };
 }
 
+
+
+/**
+ * Tableau en mémoire de tous les projets chargés.
+ * Partagé entre gestionProjets.js, detailProjet.js et ui.js
+ * via import/export.
+ */
+export let projets = [];
+
+/**
+ * Remplace le tableau interne (appelé après chargement API).
+ * @param {Object[]} liste
+ */
+export function setProjets(liste) {
+  projets.length = 0;
+  projets.push(...liste);
+}
+
+/**
+ * Ajoute un projet dans le tableau en mémoire.
+ * @param {Object} projet
+ */
+export function ajouterEnMemoire(projet) {
+  projets.unshift(projet);
+}
+
+/**
+ * Supprime un projet du tableau en mémoire par son id.
+ * @param {number|string} id
+ */
+export function supprimerEnMemoire(id) {
+  const index = projets.findIndex((p) => p.id == id);
+  if (index !== -1) projets.splice(index, 1);
+}
+
+/**
+ * Recherche un projet par son id.
+ * @param {number|string} id
+ * @returns {Object|undefined}
+ */
+export function trouverProjet(id) {
+  return projets.find((p) => p.id == id);
+}
+
