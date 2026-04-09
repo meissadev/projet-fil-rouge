@@ -41,7 +41,7 @@
 /* ── 2. Base — reset & éléments globaux ─────────── */
 @layer base {
   :root {
-    --font-hero: clamp(2.8rem, 10vw, 7rem);
+    --font-hero: clamp(2rem, 8vw, 4rem);
   }
 
   ::-webkit-scrollbar       { width: 4px; }
